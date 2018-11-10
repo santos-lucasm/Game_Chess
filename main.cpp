@@ -52,7 +52,7 @@ int*  StringToPosition(std::string posI, std::string posF) {
 	else {
 
 		int* array = new int[4];
-		//int* array = new int[4];
+		//int array[4] = {0, 0, 0, 0};
 		array[0] = static_cast<int>(posI[0] - 97);
 		array[1] = static_cast<int>(posI[1] - 49);
 		array[2] = static_cast<int>(posF[0] - 97);
@@ -81,8 +81,13 @@ int StartMenu() {
 	std::cout << "-------------------------" << std::endl;
 
 	int option = 0;
-	while ( (option < 1) || (option > 4)) {
-		std::cout << "Escolha uma opcao: ";
+	std::cout << "Escolha uma opcao: ";
+	std::cin >> option;
+
+	while ( (option < 1) || (option > 4) || std::cin.fail() ) {
+		std::cin.clear();
+		std::cin.ignore();
+		std::cout << "Entrada invalida. Por favor, digite novamente: ";
 		std::cin >> option;
 	}
 	return static_cast<int>(option);
@@ -91,18 +96,22 @@ int StartMenu() {
 void InstructionsScreen() {
 	
 	std::cout << std::endl;
-	std::cout << "Pieces first letter indicates its color: " << std::endl;
+	std::cout << " (*)Pieces first letter indicates its color: " << std::endl;
 	std::cout << "\tW: White\n\tB: Black" << std::endl;
-	std::cout << std::endl;
-	std::cout << "Pieces second letter indicates its class: " << std::endl;
+	std::cout << " (*)Pieces second letter indicates its class: " << std::endl;
 	std::cout << "\tP: Pawn\n\tR: Rook\n\tN: Knight\n\tB: Bishop\n\tK: King\n\tQ: Queen" << std::endl;
 	std::cout << std::endl;
-	std::cout << "Moving: Enter the current location of the piece followed by a space (or enter) then the final location where you want to move your piece." << std::endl;
-	std::cout << "Ex: a2 a3\nEx: c5 d6" << std::endl;
+
+	std::cout << " (*)Moving: Enter the current location of the piece followed by a space (or enter)\nthen the final location where you want to move your piece." << std::endl;
+	std::cout << " Our implementation doesn't use letters to indicate which piece is moving, just the\ninitial and final squares of each move" << std::endl;
+	std::cout << " Ex: a2 a3\nEx: c5 d6" << std::endl;
 	std::cout << std::endl;
-	std::cout << "Load a game: To load a game, rename the \"game_log.txt\" file that stays into the same diretory as the \"Chess.exe\" file to \"text.txt\" and then choose the third option in the menu." << std::endl;
+
+	std::cout << " (*)Load a game: To load a game, rename the \"game_log.txt\" file that stays into\nthe \"Arquivos_seq\" diretory to \"load_game.txt\" and then choose the third option in the menu." << std::endl;
+	std::cout << " To load games that have never been played before, the user should use the same notation as the game_log file: " << std::endl;
+	std::cout << "\n MOVE_NUMBER. INITIAL_SQUARE FINAL_SQUARE (followed by a \\n)" << std::endl;
 	std::cout << std::endl;
-	std::cout << "Roque, en passant and promote moves are still not implemented." << std::endl;
+	std::cout << " En passant and promote moves are still not implemented." << std::endl;
 	std::cout << std::endl << std::endl;
 	system("pause");
 }
