@@ -1,0 +1,2 @@
+g++ -c main.cpp Board.cpp -Wextra -Wcast-align -Wcast-qual -Wctor-dtor-privacy -Wdisabled-optimization -Wformat=2 -Wno-Wlogical-op -Wmissing-declarations -Wmissing-include-dirs -Wnoexcept -Wold-style-cast -Woverloaded-virtual -Wredundant-decls -Wshadow -Wsign-promo -Wstrict-null-sentinel -Wstrict-overflow=5 -Wswitch-default -Wundef -Wno-unused –fno-exceptions –fno-use-cxa-atexit -std=c++0x -O2 -Wall -Werror -fexceptions -Wsign-conversion
+g++ -o Chess main.o Board.o
