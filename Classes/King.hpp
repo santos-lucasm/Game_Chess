@@ -18,10 +18,7 @@ private:
 
 		if (LinVariacao <= 1 && LinVariacao >= -1 && ColVariacao <= 1 && ColVariacao >= -1)
 			return true;
-		/*
-		else if(EhCheck(LinI, ColI, GetColor(), matriz))
-			return false;
-		*/
+		
 		else if (Castling(LinI, ColI, LinF, ColF, GetColor(), matriz)) {
 			return true;
 		}
