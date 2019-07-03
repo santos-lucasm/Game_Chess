@@ -1,2 +1,4 @@
 # Chess
-Chess console game project to university using polymorphism concepts.
+
+Final project for the Programming III course in Federal University of Santa Catarina, Brazil
+Project consists in a chess console wrote in C++ using polymorphism concepts.
